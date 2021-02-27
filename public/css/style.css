@@ -1,1 +1,23 @@
+body {
+    background-color: rgb(104, 35, 169);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
 
+#title {
+    text-decoration: underline rgb(104, 35, 169);
+    font-weight: bold;
+    color: blueviolet;
+    cursor: help;
+}
+
+button {
+    background-color: blueviolet;
+    border: none;
+    color: antiquewhite;
+    width: 110px;
+    height: 40px;
+    border-radius: 5%;
+}
+button:hover{
+    font-weight: bold;
+}
