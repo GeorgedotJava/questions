@@ -4,8 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const PerguntaModel = require('./models/Pergunta');
-const faker = require('faker');
-
+const RespostaModel = require('./models/Resposta');
 
 // Database connection
 connection
@@ -14,7 +13,7 @@ connection
         console.log('Conexão estabelecida');
     })
     .catch((erro) => {
-        console.log(`ERRO: ${erro}`)
+        console.log(`ERRO: ${erro}`);
     })
 
 app.set('view engine', 'ejs');
@@ -38,7 +37,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/perguntar', (req, res) => {
-    res.render('perguntar')
+    res.render('perguntar');
 });
 
 
