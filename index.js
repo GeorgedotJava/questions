@@ -2,6 +2,18 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const connection = require('./database/database');
+const PerguntaModel = require('./models/Pergunta');
+
+// Database connection
+connection
+    .authenticate()
+    .then(() => {
+        console.log('Conexão estabelecida');
+    })
+    .catch((erro) => {
+        console.log(`ERRO: ${erro}`)
+    })
 
 app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
