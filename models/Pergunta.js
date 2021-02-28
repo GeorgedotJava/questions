@@ -15,4 +15,6 @@ const Pergunta = connection.define('pergunta', {
 });
 
 // Caso a tebela exista ela não será recriada
-Pergunta.sync({force: false})
+Pergunta.sync({force: false});
+
+module.exports = Pergunta;

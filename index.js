@@ -4,6 +4,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
 const PerguntaModel = require('./models/Pergunta');
+const faker = require('faker');
+
 
 // Database connection
 connection
@@ -24,21 +26,53 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-    res.render('home');
+    PerguntaModel.findAll({raw: true, order:[
+        ['id', 'DESC']
+    ]})
+        .then((perguntas) => {
+            res.render('home', {
+                perguntas: perguntas
+            });
+    });
+    
 });
 
 app.get('/perguntar', (req, res) => {
-    res.render('perguntar');
+    res.render('perguntar')
 });
 
+
+
 app.post('/salvarpergunta', (req, res) => {
-    let nome = req.body.titulo;
-    let descricao = req.body.descricao;
-    
-    res.send('Formulário enviado');
+   let titulo = req.body.titulo;
+   let descricao = req.body.descricao;
+
+   PerguntaModel.create({
+       titulo: titulo,
+       descricao: descricao
+   }).then(() => {
+       res.redirect('/');
+   })
 })
 
-
+app.get('/pergunta/:id', (req, res) => {
+    const id = req.params.id;
+    
+    PerguntaModel.findOne({
+        where: {id: id}
+    })
+        .then(pergunta => {
+        if(pergunta != undefined){
+            res.render('pergunta', {
+                pergunta: pergunta
+            });
+        } else {
+            res.redirect('/');
+        }
+    })
+        
+    
+})
 
 app.listen(3001, (e) => {
     if(e){

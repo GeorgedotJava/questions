@@ -14,7 +14,7 @@ button {
     background-color: blueviolet;
     border: none;
     color: antiquewhite;
-    width: 110px;
+    width: 115px;
     height: 40px;
     border-radius: 5%;
 }
@@ -29,7 +29,7 @@ nav {
 }
 
 img {
-    width: 150px;
+    width: 100px;
     height: 40px;
     padding-left: 20px;
 }

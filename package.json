@@ -15,6 +15,7 @@
     "sequelize": "^6.5.0"
   },
   "dependencies": {
+    "faker": "^5.4.0",
     "mysql2": "^2.2.5"
   }
 }
