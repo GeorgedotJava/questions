@@ -21,3 +21,15 @@ button {
 button:hover{
     font-weight: bold;
 }
+
+nav {
+    background-color: rgb(65, 10, 117);
+    margin-bottom: 40px;
+    border-bottom: 2px solid rgb(69, 9, 125);
+}
+
+img {
+    width: 150px;
+    height: 40px;
+    padding-left: 20px;
+}
